@@ -1,6 +1,79 @@
-import '../styles//App.css';
+import '../styles//App.scss';
+import logo from "../images/adufflabeers-logo2.png";
+import logoAdalab from "../images/logo-adalab.png";
+import { useState } from 'react';
 
 function App() {
+
+  const [data, setData] = useState({
+    palette: 1,
+    name: '',
+    job: '',
+    phone: '',
+    email: '',
+    linkedin: '',
+    github: '',
+    photo: '',
+  });
+
+  // const [color, ]
+
+  const handleChangeInput = (ev) => {
+    const inputSelected = ev.currentTarget.name;
+    if (inputSelected === "name"){
+      setData({
+        ...data,
+        name: ev.currentTarget.value
+      })
+    } else if (inputSelected === "job"){
+      setData({
+        ...data,
+        job: ev.currentTarget.value
+      })
+    } else if (inputSelected === "phone"){
+      setData({
+        ...data,
+        phone: ev.currentTarget.value
+      })
+    } else if(inputSelected === "mail"){
+      setData({
+        ...data,
+        mail: ev.currentTarget.value
+      })
+    } else if(inputSelected === "linkedin"){
+      setData({
+        ...data,
+        linkedin: ev.currentTarget.value
+      })
+    } else if(inputSelected === "github"){
+      setData({
+        ...data,
+        github: ev.currentTarget.value
+      })
+    } 
+  }
+
+ const handleClickPalette = (ev) => {
+   const paletteSelected = ev.currentTarget.id;
+  if(paletteSelected === "1"){
+    setData({
+      ...data,
+      palette: "1"
+    })
+    // mainColor = 
+ } else if (paletteSelected === "2"){
+  setData({
+    ...data,
+    palette: "2"
+  }) 
+} else if (paletteSelected === "3"){
+    setData({
+      ...data,
+      palette: "3"
+    })
+  }
+}
+
   return (
     <div className="App">
       <header className="awesome">
@@ -8,7 +81,7 @@ function App() {
           <a className="awesome__container--link" href="./index.html">
             <img
               className="awesome__container--img"
-              src="./assets/images/adufflabeers-logo2.png"
+              src={logo}
               title="logo awesome"
               alt="logo-awesome"
             />
@@ -24,13 +97,15 @@ function App() {
               <p className="section1__reset--text">Reset</p>
             </button>
 
-            <article className="card js-choiceColours">
+            <article className="card js-choiceColours"> {/*{`card js-choiceColours ${mainColor}`} */}
               <div className="card__rectangle"></div>
               <div className="card__user">
                 <h1 className="card__user--userName js-cardName js-choiceColours">
-                  Nombre apellido
+                  {data.name || "Nombre Apellidos"}
                 </h1>
-                <h2 className="card__user--job js-cardJob">Front developer</h2>
+                <h2 className="card__user--job js-cardJob">
+                {data.job || "Front developer"}
+                </h2>
               </div>
               <div className="card__img js__profile-image"></div>
               <ul className="card__bar">
@@ -38,7 +113,7 @@ function App() {
                   <a
                     className="js-cardPhone"
                     title="Contáctame"
-                    href="#"
+                    href={`tel:${data.phone}`}
                     target="_blank"
                   >
                     <i className="fas fa-mobile-alt"></i>
@@ -48,9 +123,8 @@ function App() {
                   <a
                     className="js-cardEmail"
                     title="Mándame un correo"
-                    href="#"
-                    target="_blank"
-                  >
+                    href={`mailto:${data.email}`}
+                    >
                     <i className="far fa-envelope"></i>
                   </a>
                 </li>
@@ -58,7 +132,7 @@ function App() {
                   <a
                     className="js-cardLinkedin"
                     title="Visita mi Linkedin"
-                    href="#"
+                    href={`https://www.linkedin.com/in/${data.linkedin}`}
                     target="_blank"
                   >
                     <i className="fab fa-linkedin-in"></i>
@@ -68,7 +142,7 @@ function App() {
                   <a
                     className="js-cardGitHub"
                     title="Visita mi GitHub"
-                    href="#"
+                    href={`https://github.com/${data.github}`}
                     target="_blank"
                   >
                     <i className="fab fa-github-alt"></i>
@@ -105,7 +179,8 @@ function App() {
                         id="1"
                         type="radio"
                         name="palette"
-                        checked={true}
+                        defaultChecked={true}
+                        onClick={handleClickPalette}
                       />
                       <div className="color color-darkGreen"></div>
                       <div className="color color-blue"></div>
@@ -119,6 +194,7 @@ function App() {
                         id="2"
                         type="radio"
                         name="palette"
+                        onClick={handleClickPalette}
                       />
 
                       <div className="color color-darkRed"></div>
@@ -132,6 +208,7 @@ function App() {
                         id="3"
                         type="radio"
                         name="palette"
+                        onClick={handleClickPalette}
                       />
                       <div className="color color-slate"></div>
                       <div className="color color-orange"></div>
@@ -143,7 +220,7 @@ function App() {
             </fieldset>
 
             {/* <!-- Fill fieldset --> */}
-            <fieldset className="fieldsetContainer section2__form--completeFieldset collapsed">
+            <fieldset className="fieldsetContainer section2__form--completeFieldset">
               <legend className="titleContainer">
                 <div className="titleContainer__titleItem">
                   <i className="far fa-keyboard icon"></i>
@@ -156,7 +233,7 @@ function App() {
               </legend>
               <div className="labelsWrapper">
                 {/* <!-- <div className="js-collapsed"> --> */}
-                <label className="label" for="completeName">
+                <label className="label" htmlFor="completeName">
                   Nombre completo
                   <input
                     className="completeFieldset-input js-inputName js-allInputs"
@@ -167,9 +244,10 @@ function App() {
                     pattern="^\b([A-ZÀ-ÿ][-,a-z ']+[ ]*)+$"
                     title="Introduce tu nombre o tu nombre completo"
                     required
+                    onChange={handleChangeInput}
                   />
                 </label>
-                <label className="label labelsWrapper__jobLabel" for="job">
+                <label className="label labelsWrapper__jobLabel" htmlFor="job">
                   Puesto
                   <input
                     className="completeFieldset-input js-inputJob js-allInputs"
@@ -179,15 +257,16 @@ function App() {
                     placeholder="Ej: Front-end unicorn"
                     title="Introduce el puesto que desempeñas"
                     required
+                    onChange={handleChangeInput}
                   />
                 </label>
-                <label className="label labelsWrapper__imgLabel" for="img">
+                <label className="label labelsWrapper__imgLabel" htmlFor="img">
                   <span className="labelsWrapper__imgLabel--title">
                     Imagen de perfil
                   </span>
                   <div className="labelsWrapper__imgLabel--container">
                     <label
-                      for="photo"
+                      htmlFor="photo"
                       className="imgLabel-btn js__profile-trigger"
                       name="photo"
                     >
@@ -203,7 +282,7 @@ function App() {
                     <div className="imgLabel-div js__profile-preview"></div>
                   </div>
                 </label>
-                <label className="label" for="emailAddress">
+                <label className="label" htmlFor="emailAddress">
                   Email
                   <input
                     className="completeFieldset-input js-inputEmail js-allInputs"
@@ -214,9 +293,10 @@ function App() {
                     title="Introduce un email válido"
                     pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[.][a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
                     required
+                    onChange={handleChangeInput}
                   />
                 </label>
-                <label className="label" for="phoneNumber">
+                <label className="label" htmlFor="phoneNumber">
                   Teléfono
                   <input
                     className="completeFieldset-input contact__form--item phoneNumber js-inputPhone js-allInputs"
@@ -226,9 +306,10 @@ function App() {
                     name="phone"
                     pattern="^[0-9]{9}$"
                     title="Por favor, introduce tu número de teléfono"
+                    onChange={handleChangeInput}
                   />
                 </label>
-                <label className="label" for="linkedin">
+                <label className="label" htmlFor="linkedin">
                   Linkedin
                   <input
                     className="completeFieldset-input js-inputLinkedin js-allInputs"
@@ -238,9 +319,10 @@ function App() {
                     name="linkedin"
                     title="Introduce tu linkedin"
                     required
+                    onChange={handleChangeInput}
                   />
                 </label>
-                <label className="label" for="gitHub">
+                <label className="label" htmlFor="gitHub">
                   GitHub
                   <input
                     className="completeFieldset-input js-inputGitHub js-allInputs"
@@ -250,6 +332,7 @@ function App() {
                     name="gitHub"
                     title="Introduce tu GitHub"
                     required
+                    onChange={handleChangeInput}
                   />
                 </label>
               </div>
@@ -315,7 +398,7 @@ function App() {
 
         <img
           className="footer__logo"
-          src="./assets/images/logo-adalab.png"
+          src={logoAdalab}
           width="105px"
           height="40px"
         />
