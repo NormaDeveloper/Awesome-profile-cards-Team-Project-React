@@ -3,301 +3,323 @@ import '../styles//App.css';
 function App() {
   return (
     <div className="App">
-     {/* <header class="awesome">
-      <div class="awesome__container">
-        <a class="awesome__container--link" href="./index.html">
-          <img class="awesome__container--img" src="./assets/images/adufflabeers-logo2.png" title="logo awesome"
-            alt="logo-awesome" /></a>
-      </div>
-    </header>
- 
-
-    <main class="mainCard">
-      <section class="section1">
-        <div class="profile">
-          <button class="section1__reset js-reset">
-            <i class="far fa-trash-alt"></i>
-            <p class="section1__reset--text">Reset</p>
-          </button>
-
-          <article class="card js-choiceColours">
-            <div class="card__rectangle"></div>
-            <div class="card__user">
-              <h1 class="card__user--userName js-cardName js-choiceColours">
-                Nombre apellido
-              </h1>
-              <h2 class="card__user--job js-cardJob">Front developer</h2>
-            </div>
-            <div class="card__img js__profile-image"></div>
-            <ul class="card__bar">
-              <li class="card__bar--icons js-choiceColours">
-                <a class="js-cardPhone" title="Contáctame" href="#" target="_blank">
-                  <i class="fas fa-mobile-alt"></i
-                ></a>
-              </li>
-              <li class="card__bar--icons js-choiceColours">
-                <a
-                  class="js-cardEmail"
-                  title="Mándame un correo"
-                  href="#"
-                  target="_blank"
-                >
-                  <i class="far fa-envelope"></i
-                ></a>
-              </li>
-              <li class="card__bar--icons js-choiceColours">
-                <a
-                  class="js-cardLinkedin"
-                  title="Visita mi Linkedin"
-                  href="#"
-                  target="_blank"
-                  ><i class="fab fa-linkedin-in"></i
-                ></a>
-              </li>
-              <li class="card__bar--icons js-choiceColours">
-                <a
-                  class="js-cardGitHub"
-                  title="Visita mi GitHub"
-                  href="#"
-                  target="_blank"
-                  ><i class="fab fa-github-alt"></i
-                ></a>
-              </li>
-            </ul>
-          </article>
+      <header className="awesome">
+        <div className="awesome__container">
+          <a className="awesome__container--link" href="./index.html">
+            <img
+              className="awesome__container--img"
+              src="./assets/images/adufflabeers-logo2.png"
+              title="logo awesome"
+              alt="logo-awesome"
+            />
+          </a>
         </div>
-      </section>
+      </header>
 
-      <section class="section2 section2-wrapper">
-        <form class="section2__form">
-          <!-- Design fieldset -->
-          <fieldset class="fieldsetContainer section2__form--designFieldset">
-            <legend class="titleContainer js-collapsable_title">
-              <div class="titleContainer__titleItem">
-                <i class="far fa-object-ungroup icon"></i>
-                <h2 class="titleContainer__titleItem--title">Diseña</h2>
+      <main className="mainCard">
+        <section className="section1">
+          <div className="profile">
+            <button className="section1__reset js-reset">
+              <i className="far fa-trash-alt"></i>
+              <p className="section1__reset--text">Reset</p>
+            </button>
+
+            <article className="card js-choiceColours">
+              <div className="card__rectangle"></div>
+              <div className="card__user">
+                <h1 className="card__user--userName js-cardName js-choiceColours">
+                  Nombre apellido
+                </h1>
+                <h2 className="card__user--job js-cardJob">Front developer</h2>
               </div>
-              <i
-                title="Pulsa para desplegar"
-                class="titleContainer__titleItem--icon fas fa-chevron-up js-arrowCollapsable"
-              ></i>
-            </legend>
-
-            <div class="designContainer js-collapsable_content">
-              <label>Colores</label>
-              <nav>
-                <ul class="designContainer__choosePalette">
-                  <li class="designContainer__choosePalette--palette">
-                    <input
-                      class="inputRadio js-palette js-allInputs"
-                      value="1"
-                      id="1"
-                      type="radio"
-                      name="palette"
-                      checked="true"
-                    />
-                    <div class="color color-darkGreen"></div>
-                    <div class="color color-blue"></div>
-                    <div class="color color-green"></div>
-                  </li>
-
-                  <li class="designContainer__choosePalette--palette">
-                    <input
-                      class="inputRadio js-palette js-allInputs"
-                      value="2"
-                      id="2"
-                      type="radio"
-                      name="palette"
-                    />
-
-                    <div class="color color-darkRed"></div>
-                    <div class="color color-red"></div>
-                    <div class="color color-tomato"></div>
-                  </li>
-                  <li class="designContainer__choosePalette--palette">
-                    <input
-                      class="inputRadio js-palette js-allInputs"
-                      value="3"
-                      id="3"
-                      type="radio"
-                      name="palette"
-                    />
-                    <div class="color color-slate"></div>
-                    <div class="color color-orange"></div>
-                    <div class="color color-lightBlue"></div>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </fieldset>
-
-          <!-- Fill fieldset -->
-          <fieldset
-            class="fieldsetContainer section2__form--completeFieldset collapsed"
-          >
-            <legend class="titleContainer">
-              <div class="titleContainer__titleItem">
-                <i class="far fa-keyboard icon"></i>
-                <h2 class="titleContainer__titleItem--title">Rellena</h2>
-              </div>
-              <i
-                title="Pulsa para desplegar"
-                class="titleContainer__titleItem--icon fas fa-chevron-up js-arrowCollapsable2"
-              ></i>
-            </legend>
-            <div class="labelsWrapper">
-              <!-- <div class="js-collapsed"> -->
-              <label class="label" for="completeName">
-                Nombre completo
-                <input
-                  class="completeFieldset-input js-inputName js-allInputs"
-                  id="completeName"
-                  type="text"
-                  name="name"
-                  placeholder="Ej: Sally Jill"
-                  pattern="^\b([A-ZÀ-ÿ][-,a-z ']+[ ]*)+$"
-                  title="Introduce tu nombre o tu nombre completo"
-                  required
-                />
-              </label>
-              <label class="label labelsWrapper__jobLabel" for="job">
-                Puesto
-                <input
-                  class="completeFieldset-input js-inputJob js-allInputs"
-                  id="job"
-                  type="text"
-                  name="job"
-                  placeholder="Ej: Front-end unicorn"
-                  title="Introduce el puesto que desempeñas"
-                  required
-                />
-              </label>
-              <label class="label labelsWrapper__imgLabel" for="img">
-                <span class="labelsWrapper__imgLabel--title">Imagen de perfil</span>
-                <div class="labelsWrapper__imgLabel--container">
-                  <label for="photo" class="imgLabel-btn js__profile-trigger" name="photo">Añadir imagen</label>
-                  <input class="js__profile-upload-btn" type="file" name="photo" id="photo" required />
-                  <div class="imgLabel-div js__profile-preview"></div>
-                </div>
-              </label>
-              <label class="label" for="emailAddress">
-                Email
-                <input
-                  class="completeFieldset-input js-inputEmail js-allInputs"
-                  placeholder="nombre.apellidos@mail.com"
-                  id="emailAddress"
-                  type="email"
-                  name="email"
-                  title="Introduce un email válido"
-                  pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[.][a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
-                  required
-                />
-              </label>
-              <label class="label" for="phoneNumber">
-                Teléfono
-                <input
-                  class="completeFieldset-input contact__form--item phoneNumber js-inputPhone js-allInputs"
-                  placeholder="Ej: 555-55-55-55"
-                  id="phoneNumber"
-                  type="tel"
-                  name="phone"
-                  pattern="^[0-9]{9}$"
-                  title="Por favor, introduce tu número de teléfono"
-                />
-              </label>
-              <label class="label" for="linkedin">
-                Linkedin
-                <input
-                  class="completeFieldset-input js-inputLinkedin js-allInputs"
-                  placeholder="Ej: linkedin.com/in/sally.hill"
-                  id="linkedin"
-                  type="text"
-                  name="linkedin"
-                  title="Introduce tu linkedin"
-                  required
-                />
-              </label>
-              <label class="label" for="gitHub">
-                GitHub
-                <input
-                  class="completeFieldset-input js-inputGitHub js-allInputs"
-                  placeholder="Ej: @sally-hill"
-                  id="gitHub"
-                  type="text"
-                  name="gitHub"
-                  title="Introduce tu GitHub"
-                  required
-                />
-              </label>
-            </div>
-          </fieldset>
-
-          <!-- Share fieldset -->
-          <fieldset
-            class="fieldsetContainer section2__form--shareFieldset collapsed"
-          >
-            <legend class="titleContainer">
-              <div class="titleContainer__titleItem">
-                <i class="fas fa-share-alt icon"></i>
-                <h2 class="titleContainer__titleItem--title">Comparte</h2>
-              </div>
-              <i
-                title="Pulsa para desplegar"
-                class="titleContainer__titleItem--icon fas fa-chevron-up js-arrowCollapsable3"
-              ></i>
-            </legend>
-            <div class="shareContainer">
-              <!-- <div class="js-collapsed"> -->
-              <div class="btnContainer">
-                <button
-                  class="btnContainer__share-btn js-createBtn createBtnColor1"
-                >
-                  <i class="btnContainer__share-btn--icon far fa-address-card"></i>
-                  <span
-                    class="btnContainer__share-btn--text"
-                    title="Crear la tarjeta"
-                    >Crear tarjeta</span
+              <div className="card__img js__profile-image"></div>
+              <ul className="card__bar">
+                <li className="card__bar--icons js-choiceColours">
+                  <a
+                    className="js-cardPhone"
+                    title="Contáctame"
+                    href="#"
+                    target="_blank"
                   >
-                </button>
-                <span
-                  class="btnContainer__mensajeError js-hiddenMessage"
-                  title="¡Debes rellenar todos los campos!"
-                ></span>
+                    <i className="fas fa-mobile-alt"></i>
+                  </a>
+                </li>
+                <li className="card__bar--icons js-choiceColours">
+                  <a
+                    className="js-cardEmail"
+                    title="Mándame un correo"
+                    href="#"
+                    target="_blank"
+                  >
+                    <i className="far fa-envelope"></i>
+                  </a>
+                </li>
+                <li className="card__bar--icons js-choiceColours">
+                  <a
+                    className="js-cardLinkedin"
+                    title="Visita mi Linkedin"
+                    href="#"
+                    target="_blank"
+                  >
+                    <i className="fab fa-linkedin-in"></i>
+                  </a>
+                </li>
+                <li className="card__bar--icons js-choiceColours">
+                  <a
+                    className="js-cardGitHub"
+                    title="Visita mi GitHub"
+                    href="#"
+                    target="_blank"
+                  >
+                    <i className="fab fa-github-alt"></i>
+                  </a>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section className="section2 section2-wrapper">
+          <form className="section2__form">
+            {/* <!-- Design fieldset --> */}
+            <fieldset className="fieldsetContainer section2__form--designFieldset">
+              <legend className="titleContainer js-collapsable_title">
+                <div className="titleContainer__titleItem">
+                  <i className="far fa-object-ungroup icon"></i>
+                  <h2 className="titleContainer__titleItem--title">Diseña</h2>
+                </div>
+                <i
+                  title="Pulsa para desplegar"
+                  className="titleContainer__titleItem--icon fas fa-chevron-up js-arrowCollapsable"
+                ></i>
+              </legend>
+
+              <div className="designContainer js-collapsable_content">
+                <label>Colores</label>
+                <nav>
+                  <ul className="designContainer__choosePalette">
+                    <li className="designContainer__choosePalette--palette">
+                      <input
+                        className="inputRadio js-palette js-allInputs"
+                        value="1"
+                        id="1"
+                        type="radio"
+                        name="palette"
+                        checked={true}
+                      />
+                      <div className="color color-darkGreen"></div>
+                      <div className="color color-blue"></div>
+                      <div className="color color-green"></div>
+                    </li>
+
+                    <li className="designContainer__choosePalette--palette">
+                      <input
+                        className="inputRadio js-palette js-allInputs"
+                        value="2"
+                        id="2"
+                        type="radio"
+                        name="palette"
+                      />
+
+                      <div className="color color-darkRed"></div>
+                      <div className="color color-red"></div>
+                      <div className="color color-tomato"></div>
+                    </li>
+                    <li className="designContainer__choosePalette--palette">
+                      <input
+                        className="inputRadio js-palette js-allInputs"
+                        value="3"
+                        id="3"
+                        type="radio"
+                        name="palette"
+                      />
+                      <div className="color color-slate"></div>
+                      <div className="color color-orange"></div>
+                      <div className="color color-lightBlue"></div>
+                    </li>
+                  </ul>
+                </nav>
               </div>
-              <section class="shareSection js-shareSection hidden">
-                <p class="shareSection__paragraph">La tarjeta ha sido creada:</p>
-                <a
-                  class="link shareSection__link-share js-createCardLink"
-                  title="Ir a la tarjeta"
-                  target="_blank"
-                ></a>
-                <a
-                  class="link shareSection__link-shareTwitter js-twitterLink"
-                  title="Comparte en twitter la tarjeta"
-                  href="#"
-                  target="_blank"
-                  ><i class="fab fa-twitter"></i> Compartir en twitter</a
-                >
-              </section>
-            </div>
-          </fieldset>
-        </form>
-      </section>
-    </main>
+            </fieldset>
 
+            {/* <!-- Fill fieldset --> */}
+            <fieldset className="fieldsetContainer section2__form--completeFieldset collapsed">
+              <legend className="titleContainer">
+                <div className="titleContainer__titleItem">
+                  <i className="far fa-keyboard icon"></i>
+                  <h2 className="titleContainer__titleItem--title">Rellena</h2>
+                </div>
+                <i
+                  title="Pulsa para desplegar"
+                  className="titleContainer__titleItem--icon fas fa-chevron-up js-arrowCollapsable2"
+                ></i>
+              </legend>
+              <div className="labelsWrapper">
+                {/* <!-- <div className="js-collapsed"> --> */}
+                <label className="label" for="completeName">
+                  Nombre completo
+                  <input
+                    className="completeFieldset-input js-inputName js-allInputs"
+                    id="completeName"
+                    type="text"
+                    name="name"
+                    placeholder="Ej: Sally Jill"
+                    pattern="^\b([A-ZÀ-ÿ][-,a-z ']+[ ]*)+$"
+                    title="Introduce tu nombre o tu nombre completo"
+                    required
+                  />
+                </label>
+                <label className="label labelsWrapper__jobLabel" for="job">
+                  Puesto
+                  <input
+                    className="completeFieldset-input js-inputJob js-allInputs"
+                    id="job"
+                    type="text"
+                    name="job"
+                    placeholder="Ej: Front-end unicorn"
+                    title="Introduce el puesto que desempeñas"
+                    required
+                  />
+                </label>
+                <label className="label labelsWrapper__imgLabel" for="img">
+                  <span className="labelsWrapper__imgLabel--title">
+                    Imagen de perfil
+                  </span>
+                  <div className="labelsWrapper__imgLabel--container">
+                    <label
+                      for="photo"
+                      className="imgLabel-btn js__profile-trigger"
+                      name="photo"
+                    >
+                      Añadir imagen
+                    </label>
+                    <input
+                      className="js__profile-upload-btn"
+                      type="file"
+                      name="photo"
+                      id="photo"
+                      required
+                    />
+                    <div className="imgLabel-div js__profile-preview"></div>
+                  </div>
+                </label>
+                <label className="label" for="emailAddress">
+                  Email
+                  <input
+                    className="completeFieldset-input js-inputEmail js-allInputs"
+                    placeholder="nombre.apellidos@mail.com"
+                    id="emailAddress"
+                    type="email"
+                    name="email"
+                    title="Introduce un email válido"
+                    pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[.][a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
+                    required
+                  />
+                </label>
+                <label className="label" for="phoneNumber">
+                  Teléfono
+                  <input
+                    className="completeFieldset-input contact__form--item phoneNumber js-inputPhone js-allInputs"
+                    placeholder="Ej: 555-55-55-55"
+                    id="phoneNumber"
+                    type="tel"
+                    name="phone"
+                    pattern="^[0-9]{9}$"
+                    title="Por favor, introduce tu número de teléfono"
+                  />
+                </label>
+                <label className="label" for="linkedin">
+                  Linkedin
+                  <input
+                    className="completeFieldset-input js-inputLinkedin js-allInputs"
+                    placeholder="Ej: linkedin.com/in/sally.hill"
+                    id="linkedin"
+                    type="text"
+                    name="linkedin"
+                    title="Introduce tu linkedin"
+                    required
+                  />
+                </label>
+                <label className="label" for="gitHub">
+                  GitHub
+                  <input
+                    className="completeFieldset-input js-inputGitHub js-allInputs"
+                    placeholder="Ej: @sally-hill"
+                    id="gitHub"
+                    type="text"
+                    name="gitHub"
+                    title="Introduce tu GitHub"
+                    required
+                  />
+                </label>
+              </div>
+            </fieldset>
 
+            {/* <!-- Share fieldset --> */}
+            <fieldset className="fieldsetContainer section2__form--shareFieldset collapsed">
+              <legend className="titleContainer">
+                <div className="titleContainer__titleItem">
+                  <i className="fas fa-share-alt icon"></i>
+                  <h2 className="titleContainer__titleItem--title">Comparte</h2>
+                </div>
+                <i
+                  title="Pulsa para desplegar"
+                  className="titleContainer__titleItem--icon fas fa-chevron-up js-arrowCollapsable3"
+                ></i>
+              </legend>
+              <div className="shareContainer">
+                {/* <!-- <div className="js-collapsed"> --> */}
+                <div className="btnContainer">
+                  <button className="btnContainer__share-btn js-createBtn createBtnColor1">
+                    <i className="btnContainer__share-btn--icon far fa-address-card"></i>
+                    <span
+                      className="btnContainer__share-btn--text"
+                      title="Crear la tarjeta"
+                    >
+                      Crear tarjeta
+                    </span>
+                  </button>
+                  <span
+                    className="btnContainer__mensajeError js-hiddenMessage"
+                    title="¡Debes rellenar todos los campos!"
+                  ></span>
+                </div>
+                <section className="shareSection js-shareSection hidden">
+                  <p className="shareSection__paragraph">
+                    La tarjeta ha sido creada:
+                  </p>
+                  <a
+                    className="link shareSection__link-share js-createCardLink"
+                    title="Ir a la tarjeta"
+                    target="_blank"
+                  ></a>
+                  <a
+                    className="link shareSection__link-shareTwitter js-twitterLink"
+                    title="Comparte en twitter la tarjeta"
+                    href="#"
+                    target="_blank"
+                  >
+                    <i className="fab fa-twitter"></i> Compartir en twitter
+                  </a>
+                </section>
+              </div>
+            </fieldset>
+          </form>
+        </section>
+      </main>
 
-    <footer class="footer">
-      <small class="footer__copy">Awesome profile-cards &copy; 2021</small>
+      <footer className="footer">
+        <small className="footer__copy">
+          Awesome profile-cards &copy; 2021
+        </small>
 
-
-      <img class="footer__logo" src="./assets/images/logo-adalab.png" width="105px" height="40px" />
-
-
-    </footer>
-
-
-  <script src="./assets/js/main.js"></script> */}
+        <img
+          className="footer__logo"
+          src="./assets/images/logo-adalab.png"
+          width="105px"
+          height="40px"
+        />
+      </footer>
     </div>
   );
 }
