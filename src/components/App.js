@@ -21,10 +21,24 @@ function App() {
   const handleChangeInput = (ev) => {
     const inputSelected = ev.currentTarget.name;
 
-   setData({
-     ...data,
-     [inputSelected]: ev.currentTarget.value
-   })    
+    setData({
+      ...data,
+      [inputSelected]: ev.currentTarget.value
+    })
+  }
+  const handleReset = () => {
+    setData({
+      palette: '1',
+      name: '',
+      job: '',
+      phone: '',
+      email: '',
+      linkedin: '',
+      github: '',
+      photo: '',
+    })
+
+
   }
 
 
@@ -47,19 +61,19 @@ function App() {
       <main className="mainCard">
         <section className="section1">
           <div className="profile">
-            <button className="section1__reset js-reset">
+            <button className="section1__reset js-reset" onClick={handleReset}>
               <i className="far fa-trash-alt"></i>
               <p className="section1__reset--text">Reset</p>
             </button>
 
-            <article className={`card colorChoice${data.palette}`}> 
+            <article className={`card colorChoice${data.palette}`}>
               <div className="card__rectangle"></div>
               <div className="card__user">
                 <h1 className={`card__user--userName js-cardName colorChoice${data.palette}`}>
                   {data.name || "Nombre Apellidos"}
                 </h1>
                 <h2 className="card__user--job js-cardJob">
-                {data.job || "Front developer"}
+                  {data.job || "Front developer"}
                 </h2>
               </div>
               <div className="card__img js__profile-image"></div>
@@ -79,7 +93,7 @@ function App() {
                     className="js-cardEmail"
                     title="Mándame un correo"
                     href={`mailto:${data.email}`}
-                    >
+                  >
                     <i className="far fa-envelope"></i>
                   </a>
                 </li>
@@ -137,7 +151,7 @@ function App() {
                         defaultChecked={true}
                         onClick={handleChangeInput}
                         checked={data.palette === '1'}
-                        
+
                       />
                       <div className="color color-darkGreen"></div>
                       <div className="color color-blue"></div>
