@@ -6,7 +6,7 @@ import { useState } from 'react';
 function App() {
 
   const [data, setData] = useState({
-    palette: 1,
+    palette: '1',
     name: '',
     job: '',
     phone: '',
@@ -20,59 +20,14 @@ function App() {
 
   const handleChangeInput = (ev) => {
     const inputSelected = ev.currentTarget.name;
-    if (inputSelected === "name"){
-      setData({
-        ...data,
-        name: ev.currentTarget.value
-      })
-    } else if (inputSelected === "job"){
-      setData({
-        ...data,
-        job: ev.currentTarget.value
-      })
-    } else if (inputSelected === "phone"){
-      setData({
-        ...data,
-        phone: ev.currentTarget.value
-      })
-    } else if(inputSelected === "mail"){
-      setData({
-        ...data,
-        mail: ev.currentTarget.value
-      })
-    } else if(inputSelected === "linkedin"){
-      setData({
-        ...data,
-        linkedin: ev.currentTarget.value
-      })
-    } else if(inputSelected === "github"){
-      setData({
-        ...data,
-        github: ev.currentTarget.value
-      })
-    } 
+
+   setData({
+     ...data,
+     [inputSelected]: ev.currentTarget.value
+   })    
   }
 
- const handleClickPalette = (ev) => {
-   const paletteSelected = ev.currentTarget.id;
-  if(paletteSelected === "1"){
-    setData({
-      ...data,
-      palette: "1"
-    })
-    // mainColor = 
- } else if (paletteSelected === "2"){
-  setData({
-    ...data,
-    palette: "2"
-  }) 
-} else if (paletteSelected === "3"){
-    setData({
-      ...data,
-      palette: "3"
-    })
-  }
-}
+
 
   return (
     <div className="App">
@@ -97,10 +52,10 @@ function App() {
               <p className="section1__reset--text">Reset</p>
             </button>
 
-            <article className="card js-choiceColours"> {/*{`card js-choiceColours ${mainColor}`} */}
+            <article className={`card colorChoice${data.palette}`}> 
               <div className="card__rectangle"></div>
               <div className="card__user">
-                <h1 className="card__user--userName js-cardName js-choiceColours">
+                <h1 className={`card__user--userName js-cardName colorChoice${data.palette}`}>
                   {data.name || "Nombre Apellidos"}
                 </h1>
                 <h2 className="card__user--job js-cardJob">
@@ -109,7 +64,7 @@ function App() {
               </div>
               <div className="card__img js__profile-image"></div>
               <ul className="card__bar">
-                <li className="card__bar--icons js-choiceColours">
+                <li className={`card__bar--icons colorChoice${data.palette}`}>
                   <a
                     className="js-cardPhone"
                     title="Contáctame"
@@ -119,7 +74,7 @@ function App() {
                     <i className="fas fa-mobile-alt"></i>
                   </a>
                 </li>
-                <li className="card__bar--icons js-choiceColours">
+                <li className={`card__bar--icons colorChoice${data.palette}`}>
                   <a
                     className="js-cardEmail"
                     title="Mándame un correo"
@@ -128,7 +83,7 @@ function App() {
                     <i className="far fa-envelope"></i>
                   </a>
                 </li>
-                <li className="card__bar--icons js-choiceColours">
+                <li className={`card__bar--icons colorChoice${data.palette}`}>
                   <a
                     className="js-cardLinkedin"
                     title="Visita mi Linkedin"
@@ -138,7 +93,7 @@ function App() {
                     <i className="fab fa-linkedin-in"></i>
                   </a>
                 </li>
-                <li className="card__bar--icons js-choiceColours">
+                <li className={`card__bar--icons colorChoice${data.palette}`}>
                   <a
                     className="js-cardGitHub"
                     title="Visita mi GitHub"
@@ -180,7 +135,9 @@ function App() {
                         type="radio"
                         name="palette"
                         defaultChecked={true}
-                        onClick={handleClickPalette}
+                        onClick={handleChangeInput}
+                        checked={data.palette === '1'}
+                        
                       />
                       <div className="color color-darkGreen"></div>
                       <div className="color color-blue"></div>
@@ -194,7 +151,8 @@ function App() {
                         id="2"
                         type="radio"
                         name="palette"
-                        onClick={handleClickPalette}
+                        onClick={handleChangeInput}
+                        checked={data.palette === '2'}
                       />
 
                       <div className="color color-darkRed"></div>
@@ -208,7 +166,8 @@ function App() {
                         id="3"
                         type="radio"
                         name="palette"
-                        onClick={handleClickPalette}
+                        onClick={handleChangeInput}
+                        checked={data.palette === '3'}
                       />
                       <div className="color color-slate"></div>
                       <div className="color color-orange"></div>
@@ -245,6 +204,7 @@ function App() {
                     title="Introduce tu nombre o tu nombre completo"
                     required
                     onChange={handleChangeInput}
+                    value={data.name}
                   />
                 </label>
                 <label className="label labelsWrapper__jobLabel" htmlFor="job">
@@ -258,6 +218,7 @@ function App() {
                     title="Introduce el puesto que desempeñas"
                     required
                     onChange={handleChangeInput}
+                    value={data.job}
                   />
                 </label>
                 <label className="label labelsWrapper__imgLabel" htmlFor="img">
@@ -294,6 +255,7 @@ function App() {
                     pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[.][a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
                     required
                     onChange={handleChangeInput}
+                    value={data.email}
                   />
                 </label>
                 <label className="label" htmlFor="phoneNumber">
@@ -307,6 +269,7 @@ function App() {
                     pattern="^[0-9]{9}$"
                     title="Por favor, introduce tu número de teléfono"
                     onChange={handleChangeInput}
+                    value={data.phone}
                   />
                 </label>
                 <label className="label" htmlFor="linkedin">
@@ -320,6 +283,7 @@ function App() {
                     title="Introduce tu linkedin"
                     required
                     onChange={handleChangeInput}
+                    value={data.linkedin}
                   />
                 </label>
                 <label className="label" htmlFor="gitHub">
@@ -333,6 +297,7 @@ function App() {
                     title="Introduce tu GitHub"
                     required
                     onChange={handleChangeInput}
+                    value={data.github}
                   />
                 </label>
               </div>
