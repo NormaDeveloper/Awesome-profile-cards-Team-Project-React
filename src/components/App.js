@@ -41,9 +41,10 @@ function App() {
       phone: '',
       email: '',
       linkedin: '',
-      github: '',
+      gitHub: '',
       photo: '',
     })
+    ls.remove('data');
 
 
   }
@@ -118,7 +119,7 @@ function App() {
                   <a
                     className="js-cardGitHub"
                     title="Visita mi GitHub"
-                    href={`https://github.com/${data.github}`}
+                    href={`https://github.com/${data.gitHub}`}
                     target="_blank"
                   >
                     <i className="fab fa-github-alt"></i>
@@ -318,7 +319,7 @@ function App() {
                     title="Introduce tu GitHub"
                     required
                     onChange={handleChangeInput}
-                    value={data.github}
+                    value={data.gitHub}
                   />
                 </label>
               </div>
