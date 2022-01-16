@@ -1,22 +1,29 @@
 import '../styles//App.scss';
 import logo from "../images/adufflabeers-logo2.png";
 import logoAdalab from "../images/logo-adalab.png";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import ls from '../services/localStorage'
+
 
 function App() {
 
-  const [data, setData] = useState({
+
+
+  const [data, setData] = useState(ls.get('data', {}) || {
     palette: '1',
     name: '',
     job: '',
     phone: '',
     email: '',
     linkedin: '',
-    github: '',
+    gitHub: '',
     photo: '',
   });
 
-  // const [color, ]
+  useEffect(() => {
+    ls.set('data', data);
+   
+  }, [data]);
 
   const handleChangeInput = (ev) => {
     const inputSelected = ev.currentTarget.name;
