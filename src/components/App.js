@@ -1,8 +1,9 @@
 import '../styles//App.scss';
 import logo from '../images/adufflabeers-logo2.png';
 import logoAdalab from '../images/logo-adalab.png';
-import { useEffect, useState } from 'react';
 import ls from '../services/localStorage';
+import dataApi from '../services/api';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [data, setData] = useState(
@@ -16,12 +17,14 @@ function App() {
         email: '',
         linkedin: '',
         gitHub: '',
-        photo: '',
+        // photo: '',
       } || ''
     )
   );
 
-  // const [color, ]
+  const [toggleHidden, setToggleHidden] = useState('hidden');
+  const [btnOnOff, setBtnOnOff] = useState('createBtnColor1');
+  const [cardLink, setCardLink] = useState('');
 
   useEffect(() => {
     ls.set('data', data);
@@ -29,12 +32,23 @@ function App() {
 
   const handleChangeInput = (ev) => {
     const inputSelected = ev.currentTarget.name;
-
     setData({
       ...data,
       [inputSelected]: ev.currentTarget.value,
     });
   };
+
+  const handleCreateCard = (ev) => {
+    ev.preventDefault();
+    dataApi(data)
+    .then(dataFromApi => {
+        setToggleHidden('');
+        setBtnOnOff('createBtnColor2')
+        setCardLink(dataFromApi.cardURL);
+    
+    })
+  }
+
   const handleReset = () => {
     setData({
       palette: '1',
@@ -44,10 +58,14 @@ function App() {
       email: '',
       linkedin: '',
       gitHub: '',
-      photo: '',
+      // photo: '',
     });
     ls.remove('data');
   };
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+  }
 
   return (
     <div className="App">
@@ -131,7 +149,7 @@ function App() {
         </section>
 
         <section className="section2 section2-wrapper">
-          <form className="section2__form">
+          <form className="section2__form" onSubmit={handleSubmit}>
             {/* <!-- Design fieldset --> */}
             <fieldset className="fieldsetContainer section2__form--designFieldset">
               <legend className="titleContainer js-collapsable_title">
@@ -257,9 +275,9 @@ function App() {
                     <input
                       className="js__profile-upload-btn"
                       type="file"
-                      name="photo"
+                      // name="photo"
                       id="photo"
-                      required
+                      // required
                     />
                     <div className="imgLabel-div js__profile-preview"></div>
                   </div>
@@ -325,7 +343,7 @@ function App() {
             </fieldset>
 
             {/* <!-- Share fieldset --> */}
-            <fieldset className="fieldsetContainer section2__form--shareFieldset collapsed">
+            <fieldset className="fieldsetContainer section2__form--shareFieldset">
               <legend className="titleContainer">
                 <div className="titleContainer__titleItem">
                   <i className="fas fa-share-alt icon"></i>
@@ -339,7 +357,7 @@ function App() {
               <div className="shareContainer">
                 {/* <!-- <div className="js-collapsed"> --> */}
                 <div className="btnContainer">
-                  <button className="btnContainer__share-btn js-createBtn createBtnColor1">
+                  <button className={`btnContainer__share-btn js-createBtn ${btnOnOff}`} onClick={handleCreateCard}>
                     <i className="btnContainer__share-btn--icon far fa-address-card"></i>
                     <span
                       className="btnContainer__share-btn--text"
@@ -353,15 +371,16 @@ function App() {
                     title="¡Debes rellenar todos los campos!"
                   ></span>
                 </div>
-                <section className="shareSection js-shareSection hidden">
+                <section className={`shareSection js-shareSection ${toggleHidden}`}> 
                   <p className="shareSection__paragraph">
                     La tarjeta ha sido creada:
                   </p>
                   <a
-                    className="link shareSection__link-share js-createCardLink"
+                    className={`link shareSection__link-share js-createCardLink`}
                     title="Ir a la tarjeta"
                     target="_blank"
-                  ></a>
+                    href={cardLink}
+                  >{cardLink}</a>
                   <a
                     className="link shareSection__link-shareTwitter js-twitterLink"
                     title="Comparte en twitter la tarjeta"
