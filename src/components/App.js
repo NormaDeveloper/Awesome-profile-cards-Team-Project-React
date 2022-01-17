@@ -1,31 +1,40 @@
 import '../styles//App.scss';
-import logo from "../images/adufflabeers-logo2.png";
-import logoAdalab from "../images/logo-adalab.png";
-import { useState } from 'react';
+import logo from '../images/adufflabeers-logo2.png';
+import logoAdalab from '../images/logo-adalab.png';
+import { useEffect, useState } from 'react';
+import ls from '../services/localStorage';
 
 function App() {
-
-  const [data, setData] = useState({
-    palette: '1',
-    name: '',
-    job: '',
-    phone: '',
-    email: '',
-    linkedin: '',
-    github: '',
-    photo: '',
-  });
+  const [data, setData] = useState(
+    ls.get(
+      'data',
+      {
+        palette: '1',
+        name: '',
+        job: '',
+        phone: '',
+        email: '',
+        linkedin: '',
+        github: '',
+        photo: '',
+      } || ''
+    )
+  );
 
   // const [color, ]
+
+  useEffect(() => {
+    ls.set('data', data);
+  }, [data]);
 
   const handleChangeInput = (ev) => {
     const inputSelected = ev.currentTarget.name;
 
     setData({
       ...data,
-      [inputSelected]: ev.currentTarget.value
-    })
-  }
+      [inputSelected]: ev.currentTarget.value,
+    });
+  };
   const handleReset = () => {
     setData({
       palette: '1',
@@ -36,12 +45,8 @@ function App() {
       linkedin: '',
       github: '',
       photo: '',
-    })
-
-
-  }
-
-
+    });
+  };
 
   return (
     <div className="App">
@@ -69,11 +74,13 @@ function App() {
             <article className={`card colorChoice${data.palette}`}>
               <div className="card__rectangle"></div>
               <div className="card__user">
-                <h1 className={`card__user--userName js-cardName colorChoice${data.palette}`}>
-                  {data.name || "Nombre Apellidos"}
+                <h1
+                  className={`card__user--userName js-cardName colorChoice${data.palette}`}
+                >
+                  {data.name || 'Nombre Apellidos'}
                 </h1>
                 <h2 className="card__user--job js-cardJob">
-                  {data.job || "Front developer"}
+                  {data.job || 'Front developer'}
                 </h2>
               </div>
               <div className="card__img js__profile-image"></div>
@@ -151,7 +158,6 @@ function App() {
                         defaultChecked={true}
                         onClick={handleChangeInput}
                         checked={data.palette === '1'}
-
                       />
                       <div className="color color-darkGreen"></div>
                       <div className="color color-blue"></div>
