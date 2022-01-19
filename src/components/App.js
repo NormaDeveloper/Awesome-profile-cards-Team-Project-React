@@ -1,33 +1,33 @@
-import '../styles//App.scss';
-import logo from '../images/adufflabeers-logo2.png';
-import logoAdalab from '../images/logo-adalab.png';
-import ls from '../services/localStorage';
-import dataApi from '../services/api';
-import { useEffect, useState } from 'react';
+import "../styles//App.scss";
+import logo from "../images/adufflabeers-logo2.png";
+import logoAdalab from "../images/logo-adalab.png";
+import ls from "../services/localStorage";
+import dataApi from "../services/api";
+import { useEffect, useState } from "react";
 
 function App() {
   const [data, setData] = useState(
     ls.get(
-      'data',
+      "data",
       {
-        palette: '1',
-        name: '',
-        job: '',
-        phone: '',
-        email: '',
-        linkedin: '',
-        gitHub: '',
+        palette: "1",
+        name: "",
+        job: "",
+        phone: "",
+        email: "",
+        linkedin: "",
+        gitHub: "",
         // photo: '',
-      } || ''
+      } || ""
     )
   );
 
-  const [toggleHidden, setToggleHidden] = useState('hidden');
-  const [btnOnOff, setBtnOnOff] = useState('createBtnColor1');
-  const [cardLink, setCardLink] = useState('');
+  const [toggleHidden, setToggleHidden] = useState("hidden");
+  const [btnOnOff, setBtnOnOff] = useState("createBtnColor1");
+  const [cardLink, setCardLink] = useState("");
 
   useEffect(() => {
-    ls.set('data', data);
+    ls.set("data", data);
   }, [data]);
 
   const handleChangeInput = (ev) => {
@@ -40,32 +40,30 @@ function App() {
 
   const handleCreateCard = (ev) => {
     ev.preventDefault();
-    dataApi(data)
-    .then(dataFromApi => {
-        setToggleHidden('');
-        setBtnOnOff('createBtnColor2')
-        setCardLink(dataFromApi.cardURL);
-    
-    })
-  }
+    dataApi(data).then((dataFromApi) => {
+      setToggleHidden("");
+      setBtnOnOff("createBtnColor2");
+      setCardLink(dataFromApi.cardURL);
+    });
+  };
 
   const handleReset = () => {
     setData({
-      palette: '1',
-      name: '',
-      job: '',
-      phone: '',
-      email: '',
-      linkedin: '',
-      gitHub: '',
+      palette: "1",
+      name: "",
+      job: "",
+      phone: "",
+      email: "",
+      linkedin: "",
+      gitHub: "",
       // photo: '',
     });
-    ls.remove('data');
+    ls.remove("data");
   };
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-  }
+  };
 
   return (
     <div className="App">
@@ -96,10 +94,10 @@ function App() {
                 <h1
                   className={`card__user--userName js-cardName colorChoice${data.palette}`}
                 >
-                  {data.name || 'Nombre Apellidos'}
+                  {data.name || "Nombre Apellidos"}
                 </h1>
                 <h2 className="card__user--job js-cardJob">
-                  {data.job || 'Front developer'}
+                  {data.job || "Front developer"}
                 </h2>
               </div>
               <div className="card__img js__profile-image"></div>
@@ -176,7 +174,7 @@ function App() {
                         name="palette"
                         defaultChecked={true}
                         onClick={handleChangeInput}
-                        checked={data.palette === '1'}
+                        checked={data.palette === "1"}
                       />
                       <div className="color color-darkGreen"></div>
                       <div className="color color-blue"></div>
@@ -191,7 +189,7 @@ function App() {
                         type="radio"
                         name="palette"
                         onClick={handleChangeInput}
-                        checked={data.palette === '2'}
+                        checked={data.palette === "2"}
                       />
 
                       <div className="color color-darkRed"></div>
@@ -206,7 +204,7 @@ function App() {
                         type="radio"
                         name="palette"
                         onClick={handleChangeInput}
-                        checked={data.palette === '3'}
+                        checked={data.palette === "3"}
                       />
                       <div className="color color-slate"></div>
                       <div className="color color-orange"></div>
@@ -357,7 +355,10 @@ function App() {
               <div className="shareContainer">
                 {/* <!-- <div className="js-collapsed"> --> */}
                 <div className="btnContainer">
-                  <button className={`btnContainer__share-btn js-createBtn ${btnOnOff}`} onClick={handleCreateCard}>
+                  <button
+                    className={`btnContainer__share-btn js-createBtn ${btnOnOff}`}
+                    onClick={handleCreateCard}
+                  >
                     <i className="btnContainer__share-btn--icon far fa-address-card"></i>
                     <span
                       className="btnContainer__share-btn--text"
@@ -371,7 +372,9 @@ function App() {
                     title="¡Debes rellenar todos los campos!"
                   ></span>
                 </div>
-                <section className={`shareSection js-shareSection ${toggleHidden}`}> 
+                <section
+                  className={`shareSection js-shareSection ${toggleHidden}`}
+                >
                   <p className="shareSection__paragraph">
                     La tarjeta ha sido creada:
                   </p>
@@ -380,7 +383,9 @@ function App() {
                     title="Ir a la tarjeta"
                     target="_blank"
                     href={cardLink}
-                  >{cardLink}</a>
+                  >
+                    {cardLink}
+                  </a>
                   <a
                     className="link shareSection__link-shareTwitter js-twitterLink"
                     title="Comparte en twitter la tarjeta"
