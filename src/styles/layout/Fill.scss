@@ -1,0 +1,59 @@
+@import '../core/variables';
+
+ /* Compleat Fieldset */
+ .labelsWrapper {
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .label {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+    &__jobLabel {
+      margin-bottom: 18px;
+    }
+
+    &__imgLabel--container {
+      width: 100%;
+      padding-top: 7px;
+      display: flex;
+    }
+  }
+
+  .imgLabel-btn {
+    width: 140px;
+    height: 30px;
+    margin-right: 15px;
+    background-color: $colorAddImageButton;
+    color: $whiteTwo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .imgLabel-div {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    border: 1px solid $colorInputForm;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .completeFieldset-input {
+    width: 100%;
+    height: 30px;
+    margin-top: 7px;
+    border: 1px solid $colorInputForm;
+    padding: 3px 0 7px 9px;
+    &::placeholder {
+      color: $colorPlaceholders;
+    }
+  }

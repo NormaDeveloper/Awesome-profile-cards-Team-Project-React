@@ -1,65 +1,43 @@
-function Design() {
+import "../styles/layout/Design.scss";
+import Legend from "./Legend";
+import Palettes from "./Palettes";
+
+function Design(props) {
   return (
     <fieldset className="fieldsetContainer section2__form--designFieldset">
-      <legend className="titleContainer js-collapsable_title">
-        <div className="titleContainer__titleItem">
-          <i className="far fa-object-ungroup icon"></i>
-          <h2 className="titleContainer__titleItem--title">Diseña</h2>
-        </div>
-        <i
-          title="Pulsa para desplegar"
-          className="titleContainer__titleItem--icon fas fa-chevron-up js-arrowCollapsable"
-        ></i>
-      </legend>
-
+      <Legend iconClass="far fa-object-ungroup icon" titleText="Diseña" />
+      {/*En este legen estaba esta clase: js-collapsable_title*/}
       <div className="designContainer js-collapsable_content">
         <label>Colores</label>
         <nav>
           <ul className="designContainer__choosePalette">
-            <li className="designContainer__choosePalette--palette">
-              <input
-                className="inputRadio js-palette js-allInputs"
-                value="1"
-                id="1"
-                type="radio"
-                name="palette"
-                onChange={handleChangeInput}
-                checked={data.palette === '1'}
-              />
-              <div className="color color-darkGreen"></div>
-              <div className="color color-blue"></div>
-              <div className="color color-green"></div>
-            </li>
-
-            <li className="designContainer__choosePalette--palette">
-              <input
-                className="inputRadio js-palette js-allInputs"
-                value="2"
-                id="2"
-                type="radio"
-                name="palette"
-                onChange={handleChangeInput}
-                checked={data.palette === '2'}
-              />
-
-              <div className="color color-darkRed"></div>
-              <div className="color color-red"></div>
-              <div className="color color-tomato"></div>
-            </li>
-            <li className="designContainer__choosePalette--palette">
-              <input
-                className="inputRadio js-palette js-allInputs"
-                value="3"
-                id="3"
-                type="radio"
-                name="palette"
-                onChange={handleChangeInput}
-                checked={data.palette === '3'}
-              />
-              <div className="color color-slate"></div>
-              <div className="color color-orange"></div>
-              <div className="color color-lightBlue"></div>
-            </li>
+            <Palettes 
+            paletteValue="1"
+            paletteId="1"
+            handleChangeInput={props.handleChangeInput}
+            data={props.data}
+            classColor1="color color-darkGreen"
+            classColor2="color color-blue"
+            classColor3="color color-green"
+            />
+          <Palettes 
+            paletteValue="2"
+            paletteId="2"
+            handleChangeInput={props.handleChangeInput}
+            data={props.data}
+            classColor1="color color-darkRed"
+            classColor2="color color-red"
+            classColor3="color color-tomato"
+            />
+          <Palettes 
+            paletteValue="3"
+            paletteId="3"
+            handleChangeInput={props.handleChangeInput}
+            data={props.data}
+            classColor1="color color-slate"
+            classColor2="color color-orange"
+            classColor3="color color-lightBlue"
+            />
           </ul>
         </nav>
       </div>

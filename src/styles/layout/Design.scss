@@ -1,0 +1,67 @@
+@import '../core/variables';
+
+.designContainer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 25px;
+    font-family: $fontText;
+    text-transform: uppercase;
+    color: $gunMetal;
+
+    &__choosePalette {
+      display: flex;
+      flex-direction: column;
+      list-style-type: none;
+      &--palette {
+        display: flex;
+        align-items: center;
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+  .inputRadio {
+    margin-right: 10px;
+  }
+
+  .color {
+    width: 30px;
+    height: 25px;
+  }
+
+  // Palette 1: colors
+  .color-darkGreen {
+    background-color: $darkGreenBlue;
+  }
+  .color-blue {
+    background-color: $dirtyBlue;
+  }
+  .color-green {
+    background-color: $hospitalGreen;
+  }
+
+  // Palette 2: colors
+  .color-darkRed {
+    background-color: $driedBlood;
+  }
+  .color-red {
+    background-color: $rustyRed;
+  }
+  .color-tomato {
+    background-color: $tomato;
+  }
+
+  // Palette 3: colors
+  .color-slate {
+    background-color: $slate;
+  }
+  .color-orange {
+    background-color: $fadedOrange;
+    :hover {
+      background-color: $lightGreyBlue;
+      color: $fadedOrange;
+    }
+  }
+  .color-lightBlue {
+    background-color: $lightGreyBlue;
+  }
