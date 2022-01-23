@@ -69,6 +69,7 @@ function App() {
     ls.remove("data");
   };
 
+  
  
 
   return (
@@ -76,7 +77,7 @@ function App() {
       <Header />
       <main className="mainCard">
         <SectionPreview />
-        <SectionForm data={data} handleChangeInput={handleChangeInput}/>
+        <SectionForm data={data} handleChangeInput={handleChangeInput} />
         <GetAvatar avatar={avatar} updateAvatar={updateAvatar} />
         <Profile avatar={avatar} />
       </main>

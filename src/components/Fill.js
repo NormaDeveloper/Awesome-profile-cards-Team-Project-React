@@ -4,9 +4,9 @@ import Inputs from "./Inputs";
 
 const Fill = (props) => {
   return (
-    <fieldset className="fieldsetContainer section2__form--completeFieldset">
-      <Legend iconClass="far fa-keyboard icon" titleText="Rellena" />
-      <div className="labelsWrapper">
+    <fieldset className="fieldsetContainer section2__form--completeFieldset $">
+      <Legend iconClass="far fa-keyboard icon" titleText="Rellena" setCollapsedSections={props.setCollapsedSections}/>
+      <div className={`labelsWrapper ${props.collapsed.fill ? "hidden" : null}`}>
         {/* <!-- <div className="js-collapsed"> --> */}
         <Inputs
           labelClass="label"

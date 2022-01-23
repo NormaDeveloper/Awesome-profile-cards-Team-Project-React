@@ -1,6 +1,11 @@
 const Legend = (props) => {
+
+  const handleClickLegend = (ev) => {
+    props.setCollapsedSections(ev.currentTarget.id)
+  }
+
   return (
-    <legend className="titleContainer">
+    <legend className="titleContainer" onClick={handleClickLegend} id={props.titleText}>
       <div className="titleContainer__titleItem">
         <i className={props.iconClass}></i>
         <h2 className="titleContainer__titleItem--title">{props.titleText}</h2>

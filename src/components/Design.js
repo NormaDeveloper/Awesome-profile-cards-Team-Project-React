@@ -5,9 +5,9 @@ import Palettes from "./Palettes";
 function Design(props) {
   return (
     <fieldset className="fieldsetContainer section2__form--designFieldset">
-      <Legend iconClass="far fa-object-ungroup icon" titleText="Diseña" />
-      {/*En este legen estaba esta clase: js-collapsable_title*/}
-      <div className="designContainer js-collapsable_content">
+      <Legend iconClass="far fa-object-ungroup icon" titleText="Diseña" setCollapsedSections={props.setCollapsedSections}/>
+      {/*En este legen estaba esta clase: js-collapsable_title*/} 
+      <div className={`designContainer js-collapsable_content ${props.collapsed.design ? "hidden" : null}`}>
         <label>Colores</label>
         <nav>
           <ul className="designContainer__choosePalette">
