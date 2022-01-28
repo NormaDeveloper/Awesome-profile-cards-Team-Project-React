@@ -1,0 +1,101 @@
+@import '../core/variables';
+
+  .section2-wrapper {
+    padding: 17px 20px 30px 20px;
+    width: 100%;
+    @media (min-width: $tablet) {
+      padding-right: 0px;
+      padding-left: 40px;
+      width: 100%;
+    }
+    @media (min-width: $desktop) {
+      width: 60%;
+    }
+  }
+
+  /* form */
+
+  .fieldsetContainer {
+    border-bottom: 1px solid $lightGrey;
+    padding-bottom: 30px;
+  }
+
+  .titleContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    &__titleItem {
+      display: flex;
+      align-items: center;
+      &--title {
+        text-transform: uppercase;
+        font-family: $fontText;
+        font-size: 18px;
+        color: $gunMetal;
+        padding-left: 10px;
+      }
+      &--icon {
+        cursor: pointer;
+        transition: transform 0.5s ease, color 1s ease;
+        &:hover {
+          transform: scale(1.2);
+          color: $dullOrange;
+        }
+      }
+    }
+  }
+
+//AQUÍ HABÍA UNA LLAVE DE SOBRA, VERIFICAR MÁS TARDE SI ALGUNO DE LOS PARTIALS DE DESING, FILL, SHARE DAN ERROR
+ 
+/* JS */
+.collapsed .designContainer,
+.collapsed .labelsWrapper,
+.collapsed .shareContainer {
+  display: none !important;
+}
+.hidden {
+  display: none !important;
+}
+.rotateArrow {
+  transform: rotate(180deg);
+}
+
+.createBtnColor1 {
+  background-color: $shareLinkColor;
+}
+
+.createBtnColor2 {
+  background-color: $shareBtnColor;
+}
+
+#photo {
+  display: none;
+}
+
+.js-hiddenMessage {
+  display: none;
+}
+
+.js-message {
+  display: flex;
+  align-items: center;
+  color: $tomato;
+  margin-left: 30px;
+  margin-top: 35px;
+  border-radius: 12px;
+  border: 2px solid $tomato;
+  padding: 5px;
+  text-align: center;
+
+  @media (min-width: $tablet) {
+    color: $tomato;
+    margin-left: 50px;
+    margin-top: 25px;
+    border-radius: 12px;
+    border: 2px solid $tomato;
+    padding: 15px;
+    text-align: center;
+  }
+}

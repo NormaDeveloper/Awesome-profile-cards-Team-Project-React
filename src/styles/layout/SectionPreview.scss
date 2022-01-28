@@ -1,0 +1,161 @@
+@import "../core/variables";
+
+.mainCard {
+  width: 100%;
+  background: linear-gradient($whiteFour, $whiteTwo 9%);
+  padding-top: 23px;
+  margin-bottom: 30px;
+
+  @media (min-width: $tablet) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+
+  .section1 {
+    width: 100%;
+    background: linear-gradient($silver, $paleGrey);
+    border-radius: 3px;
+    padding: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: $tablet) {
+      height: 100vh;
+      margin-right: 40px;
+      justify-content: center;
+      margin-left: 30px;
+    }
+
+    &__reset {
+      grid-column: 2/3;
+      background-color: $silver;
+      border: 1px solid $whiteTwo;
+      color: $gunMetal;
+      height: 30px;
+      width: 75px;
+      line-height: 20px;
+      border-radius: 22.5px;
+      font-size: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      cursor: pointer;
+
+      &--text {
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.card {
+  grid-column: 2/3;
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  grid-template-rows: 65px 1fr 45px;
+  background-color: $whiteTwo;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.35);
+  width: 240px;
+  height: 330px;
+  padding: 10px 0;
+
+  &__rectangle {
+    grid-column: 1/2;
+    position: relative;
+    margin-top: 13px;
+    width: 5px;
+    height: 42px;
+    background-color: $dirtyBlue;
+  }
+  &__user--userName {
+    margin-top: 10px;
+    margin-bottom: 4px;
+    grid-column: 2/3;
+    text-align: left;
+    font-family: $montserratFont;
+    font-size: 18px;
+    color: $slate;
+  }
+
+  &__user--job {
+    margin-bottom: 10px;
+    grid-column: 2/3;
+    text-align: left;
+    font-family: $montserratFont;
+    font-size: 16px;
+    color: $gunMetal;
+  }
+  &__img {
+    grid-column: 1/4;
+    background-image: url("../../images/fondo.jpg");
+    background-position: top center;
+    background-size: cover;
+    background-color: $whiteTwo;
+    width: 240px;
+    height: 200px;
+  }
+  &__bar {
+    grid-column: 2/3;
+    display: flex;
+    list-style-type: none;
+    margin-top: 10px;
+
+    &--icons {
+      display: flex;
+      justify-content: center;
+      background-color: $whiteTwo;
+      width: 32px;
+      height: 32px;
+      border: solid 2px $hospitalGreen;
+      border-radius: 50%;
+      padding: 5px;
+      margin-right: 10px;
+
+      a {
+        color: $darkGreenBlue;
+      }
+    }
+  }
+}
+
+// // Change color name title js
+
+//Color palettes icons js
+.colorChoice1 {
+  color: $darkGreenBlue;
+
+  .card__rectangle {
+    background-color: $dirtyBlue;
+  }
+
+  .card__bar--icons {
+    border: solid 2px $hospitalGreen;
+  }
+}
+
+.colorChoice2 {
+  color: $driedBlood;
+
+  .card__rectangle {
+    background-color: $rustyRed;
+  }
+  .card__bar--icons {
+    border: solid 2px $tomato;
+  }
+}
+
+.colorChoice3 {
+  color: $dirtyBlue;
+
+  .card__rectangle {
+    background-color: $fadedOrange;
+  }
+
+  .card__bar--icons {
+    border: solid 2px $lightGreyBlue;
+  }
+}
