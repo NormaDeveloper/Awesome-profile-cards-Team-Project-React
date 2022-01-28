@@ -1,13 +1,22 @@
 import "../styles/layout/Fill.scss";
 import Legend from "./Legend";
 import Inputs from "./Inputs";
+import GetAvatar from "./GetAvatar";
 
 const Fill = (props) => {
   return (
     <fieldset className="fieldsetContainer section2__form--completeFieldset">
-      <Legend iconClass="far fa-keyboard icon" titleText="Rellena" />
-      <div className="labelsWrapper">
-        {/* <!-- <div className="js-collapsed"> --> */}
+      <Legend
+        iconClass="far fa-keyboard icon"
+        titleText="Rellena"
+        id="fill"
+        handleCollapsibles={props.handleCollapsibles}
+        collapsibles={props.collapsibles.fill}
+      />
+      <div
+        className={`labelsWrapper ${props.collapsibles.fill ? "hidden" : null}`}
+        
+      >
         <Inputs
           labelClass="label"
           inputId="completeName"
@@ -34,7 +43,10 @@ const Fill = (props) => {
           value={props.data.job}
         />
 
-        {/* Falta la imagen */}
+        <GetAvatar
+          avatar={props.data.photo}
+          updateAvatar={props.updateAvatar}
+        />
 
         <Inputs
           labelClass="label"
@@ -76,15 +88,15 @@ const Fill = (props) => {
         />
         <Inputs
           labelClass="label"
-          inputId="gitHub"
-          labelContent="GitHub"
-          inputClass="completeFieldset-input js-inputGitHub js-allInputs"
-          inputName="gitHub"
+          inputId="github"
+          labelContent="gitHub"
+          inputClass="completeFieldset-input js-inputgithub js-allInputs"
+          inputName="github"
           inputPlaceholder="Ej: @sally-hill"
-          inputTitle="Introduce tu GitHub"
+          inputTitle="Introduce tu gitHub"
           inputRequired={true}
           handleChangeInput={props.handleChangeInput}
-          value={props.data.gitHub}
+          value={props.data.github}
         />
       </div>
     </fieldset>

@@ -6,7 +6,7 @@ const CreateButton = (props) => {
     props.data.job !== "" && 
     props.data.mail !== "" && 
     props.data.linkedin !== "" && 
-    props.data.gitHub !== "" && 
+    props.data.github !== "" && 
     props.data.photo !== "" ){
       return props.handleHiddenTwitter()
     } else {

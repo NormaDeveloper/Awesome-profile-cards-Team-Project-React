@@ -16,4 +16,4 @@ Para poder arrancar el proyecto en local se requiere el uso de dos comandos:
 -Acceso y envío de datos a un servidor
 -Almacenamiento en local usando LocalStorage
 -Uso de git para el control de versiones del proyecto
--Publicación del resultado en Internet usando GitHub Pages
+-Publicación del resultado en Internet usando github Pages

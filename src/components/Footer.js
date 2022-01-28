@@ -10,6 +10,7 @@ function Footer() {
         src={logoAdalab}
         width="105px"
         height="40px"
+        alt="Logo de Adalab"
       />
     </footer>
   );

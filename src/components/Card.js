@@ -49,9 +49,9 @@ const Card = (props) => {
         </li>
         <li className={`card__bar--icons colorChoice${props.data.palette}`}>
           <a
-            className="js-cardGitHub"
-            title="Visita mi GitHub"
-            href={`https://github.com/${props.data.gitHub}`}
+            className="js-cardgithub"
+            title="Visita mi github"
+            href={`https://github.com/${props.data.github}`}
             target="_blank"
             rel="noreferrer"
           >

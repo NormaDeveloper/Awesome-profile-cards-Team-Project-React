@@ -6,8 +6,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import SectionForm from "./SectionForm";
 import SectionPreview from "./SectionPreview";
-import GetAvatar from './GetAvatar';
-import Profile from './Profile';
+import GetAvatar from "./GetAvatar";
+import Profile from "./Profile";
 
 function App() {
   const [data, setData] = useState(
@@ -18,16 +18,13 @@ function App() {
       phone: "",
       email: "",
       linkedin: "",
-      gitHub: "",
+      github: "",
       photo: "",
     })
   );
 
-  // Comprobar que funcione la imagen así
-
   const updateAvatar = (avatar) => {
-    const addPhoto = {...data, 
-      photo: avatar}
+    const addPhoto = { ...data, photo: avatar };
     setData(addPhoto);
   };
 
@@ -51,6 +48,7 @@ function App() {
   const handleCreateCard = () => {
     dataApi(data).then((dataFromApi) => {
       setBtnOnOff("createBtnColor2");
+      console.log(dataFromApi);
       setCardLink(dataFromApi.cardURL);
     });
   };
@@ -63,36 +61,38 @@ function App() {
       phone: "",
       email: "",
       linkedin: "",
-      gitHub: "",
+      github: "",
       photo: "",
     });
     ls.remove("data");
   };
 
- const handleHiddenTwitter = () => {
-  setToggleHiddenTwitter(null)
+  const handleHiddenTwitter = () => {
+    setToggleHiddenTwitter(null);
+  };
 
- }
-
- const handleHiddenError = () => {
-  setToggleHiddenError("")
-}
+  const handleHiddenError = () => {
+    setToggleHiddenError("");
+  };
 
   return (
     <div className="App">
       <Header />
       <main className="mainCard">
-        <SectionPreview handleReset={handleReset} data={data}/>
-        <SectionForm data={data} handleChangeInput={handleChangeInput}
-        handleCreateCard ={handleCreateCard}
-        btnOnOff={btnOnOff}
-        handleHiddenTwitter={handleHiddenTwitter}
-        handleHiddenError={handleHiddenError}
-        cardLink={cardLink}
-        toggleHiddenTwitter={toggleHiddenTwitter}
-        toggleHiddenError={toggleHiddenError}
+        <SectionPreview handleReset={handleReset} data={data} />
+        <SectionForm
+          data={data}
+          handleChangeInput={handleChangeInput}
+          handleCreateCard={handleCreateCard}
+          btnOnOff={btnOnOff}
+          handleHiddenTwitter={handleHiddenTwitter}
+          handleHiddenError={handleHiddenError}
+          cardLink={cardLink}
+          toggleHiddenTwitter={toggleHiddenTwitter}
+          toggleHiddenError={toggleHiddenError}
+          avatar={data.photo}
+          updateAvatar={updateAvatar}
         />
-        <GetAvatar avatar={data.photo} updateAvatar={updateAvatar} />
         <Profile avatar={data.photo} />
       </main>
       <Footer />

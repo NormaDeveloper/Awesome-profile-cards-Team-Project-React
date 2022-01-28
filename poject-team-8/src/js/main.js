@@ -12,13 +12,13 @@ const collapsableTitle3 = document.querySelector('.js-arrowCollapsable3');
 const resetBtn = document.querySelector('.js-reset');
 
 // Input variables
-// const inputPalette = document.querySelector('.js-inputGitHub');
+// const inputPalette = document.querySelector('.js-inputgithub');
 const inputName = document.querySelector('.js-inputName');
 const inputJob = document.querySelector('.js-inputJob');
 const inputEmail = document.querySelector('.js-inputEmail');
 const inputPhone = document.querySelector('.js-inputPhone');
 const inputLinkedin = document.querySelector('.js-inputLinkedin');
-const inputGitHub = document.querySelector('.js-inputGitHub');
+const inputgithub = document.querySelector('.js-inputgithub');
 
 //const allInputs= document.querySelectorAll('.js-allInputs');
 
@@ -28,7 +28,7 @@ const cardJob = document.querySelector('.js-cardJob');
 const cardEmail = document.querySelector('.js-cardEmail');
 const cardPhone = document.querySelector('.js-cardPhone');
 const cardLinkedin = document.querySelector('.js-cardLinkedin');
-const cardGitHub = document.querySelector('.js-cardGitHub');
+const cardgithub = document.querySelector('.js-cardgithub');
 const cardPhoto = document.querySelector('.js__profile-image');
 const cardPreviewPhoto = document.querySelector('.js__profile-preview');
 const defaultImageUrl = './assets/images/fondo.jpg';
@@ -166,13 +166,13 @@ function linkedinInputPreview() {
   }
 }
 
-function gitHubInputPreview() {
-  formObject.github = inputGitHub.value;
-  const gitHubPreview = formObject.github;
-  if (gitHubPreview === '') {
-    cardGitHub.href = ``;
+function githubInputPreview() {
+  formObject.github = inputgithub.value;
+  const githubPreview = formObject.github;
+  if (githubPreview === '') {
+    cardgithub.href = ``;
   } else {
-    cardGitHub.href = `${gitHubPreview}`;
+    cardgithub.href = `${githubPreview}`;
   }
 }
 
@@ -182,7 +182,7 @@ function handlerInputPreview() {
   emailInputPreview();
   phoneInputPreview();
   linkedinInputPreview();
-  gitHubInputPreview();
+  githubInputPreview();
 
   //save input values
   setInLocalStorage();
@@ -216,7 +216,7 @@ function handlerClickResetBtn() {
   inputLinkedin.value = formObject.linkedin;
 
   formObject.github = '';
-  inputGitHub.value = formObject.github;
+  inputgithub.value = formObject.github;
 
   formObject.photo = '';
   cardPhoto.style.backgroundImage = `url(${defaultImageUrl})`;
@@ -242,7 +242,7 @@ function renderLSValues() {
   renderLSEmail();
   renderLSPhone();
   renderLSLinkedin();
-  renderLSGithub();
+  renderLSgithub();
   renderLSPalette();
   renderLSPhoto();
 
@@ -309,13 +309,13 @@ function renderLSLinkedin() {
   }
 }
 
-function renderLSGithub() {
-  inputGitHub.value = formObject.github;
-  const gitHubPreview = inputGitHub.value;
-  if (gitHubPreview === '') {
-    cardGitHub.href = ``;
+function renderLSgithub() {
+  inputgithub.value = formObject.github;
+  const githubPreview = inputgithub.value;
+  if (githubPreview === '') {
+    cardgithub.href = ``;
   } else {
-    cardGitHub.href = `${gitHubPreview}`;
+    cardgithub.href = `${githubPreview}`;
   }
 }
 
@@ -352,7 +352,7 @@ inputJob.addEventListener('keyup', handlerInputPreview);
 inputEmail.addEventListener('keyup', handlerInputPreview);
 inputPhone.addEventListener('keyup', handlerInputPreview);
 inputLinkedin.addEventListener('keyup', handlerInputPreview);
-inputGitHub.addEventListener('keyup', handlerInputPreview);
+inputgithub.addEventListener('keyup', handlerInputPreview);
 
 // function handlerUpdatePreview(){
 //   cardName.innerHTML= formObject.nameSurname.value;
