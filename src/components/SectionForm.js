@@ -62,8 +62,6 @@ function SectionForm(props) {
         />
         <Share
           handleCreateCard={props.handleCreateCard}
-          btnOnOff={props.btnOnOff}
-          toggleHidden={props.toggleHidden}
           cardLink={props.cardLink}
           data={props.data}
           handleHiddenTwitter={props.handleHiddenTwitter}

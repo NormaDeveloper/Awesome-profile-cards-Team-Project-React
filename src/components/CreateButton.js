@@ -1,4 +1,9 @@
+import { useState } from "react";
+
 const CreateButton = (props) => {
+
+  const [btnOnOff, setBtnOnOff] = useState("createBtnColor1");
+
 
   const handleLink = () => {
     if (props.data.palette !== "" && 
@@ -8,6 +13,7 @@ const CreateButton = (props) => {
     props.data.linkedin !== "" && 
     props.data.github !== "" && 
     props.data.photo !== "" ){
+      setBtnOnOff("createBtnColor2");
       return props.handleHiddenTwitter()
     } else {
       props.handleHiddenError()
@@ -22,7 +28,7 @@ const CreateButton = (props) => {
   
     return (
         <button
-        className={`btnContainer__share-btn js-createBtn ${props.btnOnOff}`}
+        className={`btnContainer__share-btn js-createBtn ${btnOnOff}`}
         onClick={handleCreateCardShare}
       >
         <i className="btnContainer__share-btn--icon far fa-address-card"></i>

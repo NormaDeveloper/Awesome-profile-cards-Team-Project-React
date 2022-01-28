@@ -7,14 +7,22 @@ import TwitterSection from "./TwitterSection";
 const Share = (props) => {
   return (
     <fieldset className="fieldsetContainer section2__form--shareFieldset">
-      <Legend iconClass="fas fa-share-alt icon" titleText="Comparte" id="share" handleCollapsibles={props.handleCollapsibles}
-      collapsibles={props.collapsibles.share}/>
+      <Legend
+        iconClass="fas fa-share-alt icon"
+        titleText="Comparte"
+        id="share"
+        handleCollapsibles={props.handleCollapsibles}
+        collapsibles={props.collapsibles.share}
+      />
 
-      <div className={`shareContainer ${props.collapsibles.share ? "hidden" : null}`}>
+      <div
+        className={`shareContainer ${
+          props.collapsibles.share ? "hidden" : null
+        }`}
+      >
         <div className="btnContainer">
           <CreateButton
             handleCreateCard={props.handleCreateCard}
-            btnOnOff={props.btnOnOff}
             data={props.data}
             handleHiddenTwitter={props.handleHiddenTwitter}
             handleHiddenError={props.handleHiddenError}

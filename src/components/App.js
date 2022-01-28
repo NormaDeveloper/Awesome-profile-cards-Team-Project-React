@@ -6,7 +6,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import SectionForm from "./SectionForm";
 import SectionPreview from "./SectionPreview";
-import GetAvatar from "./GetAvatar";
 import Profile from "./Profile";
 
 function App() {
@@ -30,7 +29,6 @@ function App() {
 
   const [toggleHiddenTwitter, setToggleHiddenTwitter] = useState("hidden");
   const [toggleHiddenError, setToggleHiddenError] = useState("hidden");
-  const [btnOnOff, setBtnOnOff] = useState("createBtnColor1");
   const [cardLink, setCardLink] = useState("");
 
   useEffect(() => {
@@ -47,7 +45,8 @@ function App() {
 
   const handleCreateCard = () => {
     dataApi(data).then((dataFromApi) => {
-      setBtnOnOff("createBtnColor2");
+      
+     
       console.log(dataFromApi);
       setCardLink(dataFromApi.cardURL);
     });
@@ -84,7 +83,6 @@ function App() {
           data={data}
           handleChangeInput={handleChangeInput}
           handleCreateCard={handleCreateCard}
-          btnOnOff={btnOnOff}
           handleHiddenTwitter={handleHiddenTwitter}
           handleHiddenError={handleHiddenError}
           cardLink={cardLink}

@@ -13,7 +13,7 @@ const Palettes = (props) => {
           type="radio"
           name="palette"
           onChange={handleInput}
-          checked={`${props.data.palette} === ${props.paletteId}}`}
+          checked={props.data.palette === props.paletteId}
         />
         <div className={props.classColor1}></div>
         <div className={props.classColor2}></div>
