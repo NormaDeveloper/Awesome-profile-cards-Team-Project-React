@@ -16,6 +16,27 @@ function SectionForm(props) {
       ...collapsibles,
       [section]: value,
     });
+    if (value === false) {
+      if (section === "design") {
+        setCollapsibles({
+          fill: true,
+          share: true,
+          [section]: value,
+        });
+      } else if (section === "fill") {
+        setCollapsibles({
+          design: true,
+          share: true,
+          [section]: value,
+        });
+      } else if (section === "share") {
+        setCollapsibles({
+          fill: true,
+          design: true,
+          [section]: value,
+        });
+      }
+    }
   };
 
   const handleSubmit = (ev) => {
