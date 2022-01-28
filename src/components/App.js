@@ -26,11 +26,13 @@ function App() {
   // Comprobar que funcione la imagen así
 
   const updateAvatar = (avatar) => {
-    const addPhoto = [...data, avatar]
+    const addPhoto = {...data, 
+      photo: avatar}
     setData(addPhoto);
   };
 
-  const [toggleHidden, setToggleHidden] = useState("hidden");
+  const [toggleHiddenTwitter, setToggleHiddenTwitter] = useState("hidden");
+  const [toggleHiddenError, setToggleHiddenError] = useState("hidden");
   const [btnOnOff, setBtnOnOff] = useState("createBtnColor1");
   const [cardLink, setCardLink] = useState("");
 
@@ -46,10 +48,8 @@ function App() {
     });
   };
 
-  const handleCreateCard = (ev) => {
-    ev.preventDefault();
+  const handleCreateCard = () => {
     dataApi(data).then((dataFromApi) => {
-      setToggleHidden("");
       setBtnOnOff("createBtnColor2");
       setCardLink(dataFromApi.cardURL);
     });
@@ -69,20 +69,31 @@ function App() {
     ls.remove("data");
   };
 
- 
+ const handleHiddenTwitter = () => {
+  setToggleHiddenTwitter(null)
+
+ }
+
+ const handleHiddenError = () => {
+  setToggleHiddenError("")
+}
 
   return (
     <div className="App">
       <Header />
       <main className="mainCard">
-        <SectionPreview />
+        <SectionPreview handleReset={handleReset} data={data}/>
         <SectionForm data={data} handleChangeInput={handleChangeInput}
         handleCreateCard ={handleCreateCard}
         btnOnOff={btnOnOff}
-        toggleHidden={toggleHidden}
-        cardLink={cardLink}/>
-        <GetAvatar avatar={avatar} updateAvatar={updateAvatar} />
-        <Profile avatar={avatar} />
+        handleHiddenTwitter={handleHiddenTwitter}
+        handleHiddenError={handleHiddenError}
+        cardLink={cardLink}
+        toggleHiddenTwitter={toggleHiddenTwitter}
+        toggleHiddenError={toggleHiddenError}
+        />
+        <GetAvatar avatar={data.photo} updateAvatar={updateAvatar} />
+        <Profile avatar={data.photo} />
       </main>
       <Footer />
     </div>

@@ -1,6 +1,23 @@
 const CreateButton = (props) => {
-  const handleCreateCardShare = () => {
+
+  const handleLink = () => {
+    if (props.data.palette !== "" && 
+    props.data.name !== "" && 
+    props.data.job !== "" && 
+    props.data.mail !== "" && 
+    props.data.linkedin !== "" && 
+    props.data.gitHub !== "" && 
+    props.data.photo !== "" ){
+      return props.handleHiddenTwitter()
+    } else {
+      props.handleHiddenError()
+    }
+  }
+
+  const handleCreateCardShare = (ev) => {
+    ev.preventDefault();
     props.handleCreateCard()
+    handleLink()
   }
   
     return (

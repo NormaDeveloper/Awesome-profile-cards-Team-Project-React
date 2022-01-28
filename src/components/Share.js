@@ -12,10 +12,19 @@ const Share = (props) => {
       <div className="shareContainer">
         {/* <!-- <div className="js-collapsed"> --> */}
         <div className="btnContainer">
-          <CreateButton handleCreateCard={props.handleCreateCard} btnOnOff={props.btnOnOff}/>
-          <ErrorMessage />
+          <CreateButton
+            handleCreateCard={props.handleCreateCard}
+            btnOnOff={props.btnOnOff}
+            data={props.data}
+            handleHiddenTwitter={props.handleHiddenTwitter}
+            handleHiddenError={props.handleHiddenError}
+          />
+          <ErrorMessage toggleHiddenError={props.toggleHiddenError} />
         </div>
-        <TwitterSection toggleHidden={props.toggleHidden}  cardLink={props.cardLink}/>
+        <TwitterSection
+          cardLink={props.cardLink}
+          toggleHiddenTwitter={props.toggleHiddenTwitter}
+        />
       </div>
     </fieldset>
   );
