@@ -1,11 +1,11 @@
-import Main from './Main';
+import MainLanding from './MainLanding';
 import Footer from './Footer';
 
 const Landing = () => {
   return (
     <>
       <body>
-        <Main />
+        <MainLanding />
         <Footer />
       </body>
     </>
