@@ -30,8 +30,9 @@ function App() {
   };
 
   const [toggleHiddenTwitter, setToggleHiddenTwitter] = useState('hidden');
-  const [toggleHiddenError, setToggleHiddenError] = useState('hidden');
+  const [toggleHiddenError, setToggleHiddenError] = useState(false);
   const [cardLink, setCardLink] = useState('');
+  const [btnOnOff, setBtnOnOff] = useState('createBtnColor1');
 
   useEffect(() => {
     ls.set('data', data);
@@ -63,6 +64,9 @@ function App() {
       github: '',
       photo: '',
     });
+    setBtnOnOff('createBtnColor1');
+    setToggleHiddenTwitter('hidden');
+    setToggleHiddenError(false);
     ls.remove('data');
   };
 
@@ -71,7 +75,11 @@ function App() {
   };
 
   const handleHiddenError = () => {
-    setToggleHiddenError('');
+    setToggleHiddenError(!toggleHiddenError);
+  };
+
+  const handleBtnOnOff = () => {
+    setBtnOnOff('createBtnColor2');
   };
 
   return (
@@ -92,6 +100,9 @@ function App() {
               toggleHiddenError={toggleHiddenError}
               avatar={data.photo}
               updateAvatar={updateAvatar}
+              btnOnOff={btnOnOff}
+              handleBtnOnOff={handleBtnOnOff}
+              
             />
             <Profile avatar={data.photo} />
           </main>

@@ -70,6 +70,8 @@ function SectionForm(props) {
           toggleHiddenError={props.toggleHiddenError}
           handleCollapsibles={handleCollapsibles}
           collapsibles={collapsibles}
+          btnOnOff={props.btnOnOff}
+          handleBtnOnOff={props.handleBtnOnOff}
         />
       </form>
     </section>

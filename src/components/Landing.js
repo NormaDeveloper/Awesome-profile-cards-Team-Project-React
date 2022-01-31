@@ -4,10 +4,8 @@ import Footer from './Footer';
 const Landing = () => {
   return (
     <>
-      <body>
-        <MainLanding />
-        <Footer />
-      </body>
+      <MainLanding />
+      <Footer />
     </>
   );
 };

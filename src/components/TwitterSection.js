@@ -1,4 +1,6 @@
 const TwitterSection = (props) => {
+  const textCard= "¡Mira la tarjeta que me ha creado Adufflabeers! 😱😱"
+
     return (
         <section className={`shareSection js-shareSection ${props.toggleHiddenTwitter}`}>
           <p className="shareSection__paragraph">La tarjeta ha sido creada:</p>
@@ -14,7 +16,7 @@ const TwitterSection = (props) => {
           <a
             className="link shareSection__link-shareTwitter js-twitterLink"
             title="Comparte en twitter la tarjeta"
-            href="#"
+            href={`https://twitter.com/intent/tweet?text=${textCard}&url=${props.cardLink}`}
             target="_blank"
             rel="noreferrer"
           >
@@ -25,3 +27,4 @@ const TwitterSection = (props) => {
 }
 
 export default TwitterSection;
+

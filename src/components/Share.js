@@ -26,8 +26,10 @@ const Share = (props) => {
             data={props.data}
             handleHiddenTwitter={props.handleHiddenTwitter}
             handleHiddenError={props.handleHiddenError}
+            btnOnOff={props.btnOnOff}
+            handleBtnOnOff={props.handleBtnOnOff}
           />
-          <ErrorMessage toggleHiddenError={props.toggleHiddenError} />
+          <ErrorMessage toggleHiddenError={props.toggleHiddenError} data={props.data}/>
         </div>
         <TwitterSection
           cardLink={props.cardLink}
