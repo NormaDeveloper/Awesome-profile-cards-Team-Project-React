@@ -1,3 +1,5 @@
+import DefaultImage from '../images/defaultAvatar.jpg';
+
 const Card = (props) => {
   return (
     <article className={`card colorChoice${props.data.palette}`}>
@@ -13,7 +15,7 @@ const Card = (props) => {
         </h2>
       </div>
       <div className="card__img js__profile-image">
-          <img  className="card__img" src={props.data.photo} alt="Imagen de la usuaria" />
+          <img  className="card__img" src={props.data.photo ? props.data.photo : DefaultImage} alt="Imagen de la usuaria" />
       </div>
       <ul className="card__bar">
         <li className={`card__bar--icons colorChoice${props.data.palette}`}>

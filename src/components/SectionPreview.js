@@ -6,9 +6,8 @@ function SectionPreview(props) {
   return (
     <section className="section1">
       <div className="profile">
-       <Reset handleReset={props.handleReset} />
-<Card data={props.data} />
-      
+        <Reset handleReset={props.handleReset} />
+        <Card data={props.data} />
       </div>
     </section>
   );
