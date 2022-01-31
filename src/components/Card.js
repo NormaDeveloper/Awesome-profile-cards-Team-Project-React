@@ -1,4 +1,5 @@
 import DefaultImage from '../images/defaultAvatar.jpg';
+import Icons from './Icons';
 
 const Card = (props) => {
   return (
@@ -18,48 +19,34 @@ const Card = (props) => {
           <img  className="card__img" src={props.data.photo ? props.data.photo : DefaultImage} alt="Imagen de la usuaria" />
       </div>
       <ul className="card__bar">
-        <li className={`card__bar--icons colorChoice${props.data.palette}`}>
-          <a
-            className="js-cardPhone"
-            title="Contáctame"
-            href={`tel:${props.data.phone}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i className="fas fa-mobile-alt"></i>
-          </a>
-        </li>
-        <li className={`card__bar--icons colorChoice${props.data.palette}`}>
-          <a
-            className="js-cardEmail"
-            title="Mándame un correo"
-            href={`mailto:${props.data.email}`}
-          >
-            <i className="far fa-envelope"></i>
-          </a>
-        </li>
-        <li className={`card__bar--icons colorChoice${props.data.palette}`}>
-          <a
-            className="js-cardLinkedin"
-            title="Visita mi Linkedin"
-            href={`https://www.linkedin.com/in/${props.data.linkedin}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i className="fab fa-linkedin-in"></i>
-          </a>
-        </li>
-        <li className={`card__bar--icons colorChoice${props.data.palette}`}>
-          <a
-            className="js-cardgithub"
-            title="Visita mi github"
-            href={`https://github.com/${props.data.github}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i className="fab fa-github-alt"></i>
-          </a>
-        </li>
+        <Icons 
+        data={props.data}
+        liClass="js-cardPhone"
+        title="Contáctame"
+        href={`tel:${props.data.phone}`}
+        iconClass="fas fa-mobile-alt"
+        />
+        <Icons 
+        data={props.data}
+        liClass="js-cardEmail"
+        title="Mándame un correo"
+        href={`mailto:${props.data.email}`}
+        iconClass="far fa-envelope"
+        />
+        <Icons 
+        data={props.data}
+        liClass="js-cardLinkedin"
+        title="Visita mi Linkedin"
+        href={`https://www.linkedin.com/in/${props.data.linkedin}`}
+        iconClass="fab fa-linkedin-in"
+        />
+          <Icons 
+        data={props.data}
+        liClass="js-cardgithub"
+        title="Visita mi github"
+        href={`https://github.com/${props.data.github}`}
+        iconClass="fab fa-github-alt"
+        />
       </ul>
     </article>
   );
