@@ -1,24 +1,25 @@
-import "../styles//App.scss";
-import ls from "../services/localStorage";
-import dataApi from "../services/api";
-import { useEffect, useState } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import SectionForm from "./SectionForm";
-import SectionPreview from "./SectionPreview";
-import Profile from "./Profile";
+import '../styles//App.scss';
+import ls from '../services/localStorage';
+import dataApi from '../services/api';
+import { useEffect, useState } from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import SectionForm from './SectionForm';
+import SectionPreview from './SectionPreview';
+import Profile from './Profile';
+import Landing from './Landing';
 
 function App() {
   const [data, setData] = useState(
-    ls.get("data", {
-      palette: "1",
-      name: "",
-      job: "",
-      phone: "",
-      email: "",
-      linkedin: "",
-      github: "",
-      photo: "",
+    ls.get('data', {
+      palette: '1',
+      name: '',
+      job: '',
+      phone: '',
+      email: '',
+      linkedin: '',
+      github: '',
+      photo: '',
     })
   );
 
@@ -27,12 +28,12 @@ function App() {
     setData(addPhoto);
   };
 
-  const [toggleHiddenTwitter, setToggleHiddenTwitter] = useState("hidden");
-  const [toggleHiddenError, setToggleHiddenError] = useState("hidden");
-  const [cardLink, setCardLink] = useState("");
+  const [toggleHiddenTwitter, setToggleHiddenTwitter] = useState('hidden');
+  const [toggleHiddenError, setToggleHiddenError] = useState('hidden');
+  const [cardLink, setCardLink] = useState('');
 
   useEffect(() => {
-    ls.set("data", data);
+    ls.set('data', data);
   }, [data]);
 
   const handleChangeInput = (name, value) => {
@@ -45,8 +46,6 @@ function App() {
 
   const handleCreateCard = () => {
     dataApi(data).then((dataFromApi) => {
-      
-     
       console.log(dataFromApi);
       setCardLink(dataFromApi.cardURL);
     });
@@ -54,16 +53,16 @@ function App() {
 
   const handleReset = () => {
     setData({
-      palette: "1",
-      name: "",
-      job: "",
-      phone: "",
-      email: "",
-      linkedin: "",
-      github: "",
-      photo: "",
+      palette: '1',
+      name: '',
+      job: '',
+      phone: '',
+      email: '',
+      linkedin: '',
+      github: '',
+      photo: '',
     });
-    ls.remove("data");
+    ls.remove('data');
   };
 
   const handleHiddenTwitter = () => {
@@ -71,11 +70,12 @@ function App() {
   };
 
   const handleHiddenError = () => {
-    setToggleHiddenError("");
+    setToggleHiddenError('');
   };
 
   return (
     <div className="App">
+      <Landing />
       <Header />
       <main className="mainCard">
         <SectionPreview handleReset={handleReset} data={data} />
