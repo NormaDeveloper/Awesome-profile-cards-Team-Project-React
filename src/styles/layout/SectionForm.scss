@@ -1,54 +1,54 @@
 @import '../core/variables';
 
-  .section2-wrapper {
-    padding: 17px 20px 30px 20px;
+.section2-wrapper {
+  padding: 17px 20px 30px 20px;
+  width: 100%;
+  @media (min-width: $tablet) {
+    padding-right: 0px;
+    padding-left: 40px;
     width: 100%;
-    @media (min-width: $tablet) {
-      padding-right: 0px;
-      padding-left: 40px;
-      width: 100%;
-    }
-    @media (min-width: $desktop) {
-      width: 60%;
-    }
   }
-
-  /* form */
-
-  .fieldsetContainer {
-    border-bottom: 1px solid $lightGrey;
-    padding-bottom: 30px;
+  @media (min-width: $desktop) {
+    width: 60%;
   }
+}
 
-  .titleContainer {
-    width: 100%;
+/* form */
+
+.fieldsetContainer {
+  border-bottom: 1px solid $lightGrey;
+  padding-bottom: 30px;
+}
+
+.titleContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  &__titleItem {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding-top: 10px;
-    &__titleItem {
-      display: flex;
-      align-items: center;
-      &--title {
-        text-transform: uppercase;
-        font-family: $fontText;
-        font-size: 18px;
-        color: $gunMetal;
-        padding-left: 10px;
-      }
-      &--icon {
-        cursor: pointer;
-        transition: transform 0.5s ease, color 1s ease;
-        &:hover {
-          transform: scale(1.2);
-          color: $dullOrange;
-        }
+    &--title {
+      text-transform: uppercase;
+      font-family: $fontText;
+      font-size: 18px;
+      color: $gunMetal;
+      padding-left: 10px;
+    }
+    &--icon {
+      cursor: pointer;
+      transition: transform 0.5s ease, color 1s ease;
+      &:hover {
+        transform: scale(1.2);
+        color: $dullOrange;
       }
     }
   }
+}
 
 //AQUÍ HABÍA UNA LLAVE DE SOBRA, VERIFICAR MÁS TARDE SI ALGUNO DE LOS PARTIALS DE DESING, FILL, SHARE DAN ERROR
- 
+
 /* JS */
 .collapsed .designContainer,
 .collapsed .labelsWrapper,
