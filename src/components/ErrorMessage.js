@@ -17,7 +17,8 @@ const ErrorMessage = (props) => {
         }`}
         title="¡Debes rellenar todos los campos!"
       >
-        ¡Debes rellenar todos los campos!
+        ¡Debes rellenar todos los campos!<br></br>
+      :(
       </span>
     );
   }
