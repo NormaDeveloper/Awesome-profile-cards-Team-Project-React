@@ -1,1 +1,1 @@
-# React Starter Kit
+# Collaborative project built with React 
